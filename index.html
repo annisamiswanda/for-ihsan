@@ -109,9 +109,17 @@ display:none;
 
 /* countdown */
 .countdown{
-font-size:4rem;
-margin:30px 0;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:5rem;
 font-weight:bold;
+z-index:9999;
+background:rgba(255,255,255,.95);
+padding:30px 50px;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
 /* quiz */
@@ -314,12 +322,14 @@ caca 🤍
 <script>
 
 function startLetter(){
+
 const countdown=document.getElementById("countdown");
 const content=document.getElementById("content");
 
 countdown.classList.remove("hidden");
 
 let num=3;
+countdown.innerHTML=num;
 
 const timer=setInterval(()=>{
 
@@ -332,12 +342,22 @@ countdown.innerHTML="💌";
 num--;
 }
 else{
+
 clearInterval(timer);
-countdown.style.display="none";
+
+countdown.classList.add("hidden");
+
 content.classList.remove("hidden");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
 }
 
 },1000);
+
 }
 
 function wrongAnswer(){
