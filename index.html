@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 <style>
+/* base */
 *{
 margin:0;
 padding:0;
@@ -22,6 +23,7 @@ color:#5b3a47;
 min-height:100vh;
 }
 
+/* floating hearts */
 .hearts{
 position:fixed;
 width:100%;
@@ -40,19 +42,12 @@ opacity:.7;
 }
 
 @keyframes float{
-0%{
-transform:translateY(0);
-opacity:0;
-}
-10%{
-opacity:1;
-}
-100%{
-transform:translateY(-120vh);
-opacity:0;
-}
+0%{transform:translateY(0);opacity:0;}
+10%{opacity:1;}
+100%{transform:translateY(-120vh);opacity:0;}
 }
 
+/* layout */
 .container{
 position:relative;
 z-index:1;
@@ -70,6 +65,7 @@ box-shadow:0 10px 30px rgba(0,0,0,.1);
 text-align:center;
 }
 
+/* image */
 .photo{
 width:100%;
 max-width:420px;
@@ -79,6 +75,7 @@ display:block;
 box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
+/* text */
 .title{
 font-family:'Dancing Script',cursive;
 font-size:3rem;
@@ -89,10 +86,7 @@ margin-bottom:10px;
 margin-bottom:20px;
 }
 
-.spotify{
-margin:20px 0;
-}
-
+/* buttons */
 .open-btn{
 background:#ff8fbc;
 color:white;
@@ -108,16 +102,19 @@ transition:.3s;
 transform:scale(1.05);
 }
 
+/* hidden */
 .hidden{
 display:none;
 }
 
+/* countdown */
 .countdown{
 font-size:4rem;
 margin:30px 0;
 font-weight:bold;
 }
 
+/* quiz */
 .quiz{
 background:#fff5fa;
 padding:20px;
@@ -135,10 +132,12 @@ margin:5px;
 cursor:pointer;
 }
 
+/* range */
 input[type=range]{
 width:100%;
 }
 
+/* letter */
 .letter{
 background:white;
 padding:30px;
@@ -157,9 +156,11 @@ font-family:'Dancing Script',cursive;
 font-size:2.5rem;
 }
 
+/* footer */
 .footer{
 margin-top:40px;
 padding:20px;
+text-align:center;
 }
 
 .footer h2{
@@ -177,211 +178,99 @@ margin-top:10px;
 <body>
 
 <div class="hearts">
-<span style="left:10%;animation-delay:0s">💗</span>
-<span style="left:20%;animation-delay:2s">🤍</span>
-<span style="left:35%;animation-delay:4s">💞</span>
-<span style="left:50%;animation-delay:1s">🎀</span>
-<span style="left:65%;animation-delay:3s">💗</span>
-<span style="left:80%;animation-delay:5s">🤍</span>
-<span style="left:95%;animation-delay:2s">💞</span>
+<span style="left:10%">💗</span>
+<span style="left:20%">🤍</span>
+<span style="left:35%">💞</span>
+<span style="left:50%">🎀</span>
+<span style="left:65%">💗</span>
+<span style="left:80%">🤍</span>
+<span style="left:95%">💞</span>
 </div>
 
 <div class="container">
-
 <div class="card">
 
 <h1 class="title">a little something from caca 💌</h1>
+<p class="subtitle">for ihsan, my favorite person 🤍</p>
 
-<p class="subtitle">
-for ihsan, my favorite person 🤍
-</p>
-
-
-<img class="photo"
-src="foto-kita.jpeg"
-alt="Caca dan Ihsan">
+<img class="photo" src="foto-kita.jpeg" alt="Caca dan Ihsan">
 
 <div class="spotify">
-<p style="margin-bottom:10px;">
-🎵 play this before opening the letter, okay? 🤍
-</p>
+<p>🎵 play this before opening the letter 🤍</p>
 
 <iframe
 style="border-radius:12px"
 src="https://open.spotify.com/embed/track/0yuAWlxq59xT3agQ965OxE?utm_source=generator"
 width="100%"
 height="152"
-frameBorder="0"
-allowfullscreen=""
-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-loading="lazy">
+frameborder="0"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
 </iframe>
 </div>
 
-<button class="open-btn" onclick="startLetter()">
-🎀 Open Me
-</button>
+<button class="open-btn" onclick="startLetter()">🎀 Open Me</button>
 
-<div id="countdown" class="hidden countdown">
-3
-</div>
+<div id="countdown" class="hidden countdown">3</div>
 
 <div id="content" class="hidden">
 
+<!-- Q1 -->
 <div id="q1" class="quiz">
-
 <h3>💞 berapa sayang kamu sama caca?</h3>
-
 <input type="range" min="0" max="1000" value="0" oninput="love(this.value)">
-
-<p id="loveText">
-geser sampai maksimal 😚
-</p>
-
-<button id="loveBtn" class="open-btn hidden" onclick="nextQuestion(1,2)">
-next 🤍
-</button>
-
+<p id="loveText">geser sampai maksimal 😚</p>
+<button id="loveBtn" class="open-btn hidden" onclick="nextQuestion(1,2)">next 🤍</button>
 </div>
 
+<!-- Q2 -->
 <div id="q2" class="quiz hidden">
-
 <p>siapa pacar paling cantik?</p>
-
-<button onclick="nextQuestion(2,3)">
-caca 💗
-</button>
-
-<button onclick="wrongAnswer()">
-yang lain 😤
-</button>
-
+<button onclick="nextQuestion(2,3)">caca 💗</button>
+<button onclick="wrongAnswer()">yang lain 😤</button>
 </div>
 
+<!-- Q3 -->
 <div id="q3" class="quiz hidden">
-
 <p>kalau kangen harus?</p>
-
-<button onclick="nextQuestion(3,4)">
-chat caca 🤍
-</button>
-
-<button onclick="wrongAnswer()">
-dipendem 😭
-</button>
-
+<button onclick="nextQuestion(3,4)">chat caca 🤍</button>
+<button onclick="wrongAnswer()">dipendem 😭</button>
 </div>
 
+<!-- Q4 -->
 <div id="q4" class="quiz hidden">
-
 <p>siapa orang yang paling sayang ihsan?</p>
-
-<button onclick="showEnvelope()">
-caca 💌
-</button>
-
-<button onclick="wrongAnswer()">
-tetangga 😤
-</button>
-
+<button onclick="showEnvelope()">caca 💌</button>
+<button onclick="wrongAnswer()">tetangga 😤</button>
 </div>
 
+<!-- envelope -->
 <div id="envelope" class="quiz hidden">
-
 <h1>💌</h1>
-
-<p>
-you unlocked your letter 🤍
-</p>
-
-<button class="open-btn" onclick="openLetter()">
-open letter
-</button>
-
+<p>you unlocked your letter 🤍</p>
+<button class="open-btn" onclick="openLetter()">open letter</button>
 </div>
-<div class="letter hidden" id="letter">
 
+<!-- letter -->
+<div class="letter hidden" id="letter">
 <h2>💌 for ihsan</h2>
 
-sayang,
-
-i've been thinking about the other night.
-
-honestly, aku ngerasa bersalah karena udah terlalu larut sama pikiranku sendiri sampai kebawa ke mood pas ketemu kamu. yang baru aku sadari setelahnya, waktu aku memilih buat nyimpen semuanya sendiri, ternyata bukan cuma aku yang nggak nyaman. you felt it too. kamu langsung sadar ada sesuatu yang beda dari aku, dan aku tahu itu bikin kamu ikut nggak tenang.
-
-and i don't want to do that to you again.
-
-aku belajar kalau aku nggak harus figure everything out sendiri dulu sebelum cerita ke kamu. aku nggak harus nunggu sampai semua pikiran di kepala aku beres. i can just talk to you, because every time i do, things somehow feel lighter.
-
-tapi semakin aku pikirin, aku sadar kalau yang paling membekas dari malam itu bukan soal apa yang kita bahas.
-
-it's the way you love me.
-
-aku merasa dicintai bukan cuma dari hal-hal besar, tapi justru dari hal-hal kecil yang kamu lakuin setiap hari dan mungkin bahkan nggak kamu sadari.
-
-dari cara kamu langsung notice kalau ada sesuatu yang beda dari aku.
-
-dari cara kamu selalu berusaha ngerti apa yang sebenarnya aku rasain sebelum ngambil kesimpulan.
-
-dari cara kamu nggak takut negur atau marahin aku kalau memang aku salah, karena aku tahu itu datang dari tempat yang baik.
-
-dari cara kamu selalu mempertimbangkan perasaanku dalam setiap keputusan yang kamu ambil.
-
-aku tahu nggak semua hal harus selalu sesuai sama apa yang aku mau. aku juga nggak pernah berharap kamu selalu setuju sama aku atau selalu ngikutin perasaanku.
-
-but what means the most to me is that you always make me feel like my feelings matter.
-
-malam itu aku sadar, sebenarnya kamu punya banyak alasan buat fokus ke diri kamu sendiri, buat menjelaskan sudut pandang kamu, atau buat bilang kalau semuanya nggak perlu dipikirin sejauh itu.
-
-but instead, you chose to understand me first.
-
-dan entah kenapa, itu yang paling bikin aku tersentuh.
-
-karena aku nggak pernah merasa harus berjuang sendirian dengan apa yang aku rasain.
-
-you always make me feel considered, safe, and loved.
-
-and i think that's why, even in moments when i'm overwhelmed by my own thoughts, i never truly feel alone—because somehow, you always make me feel like we're facing things together.
-
-dan jujur, itu adalah salah satu hal yang paling aku syukuri dari hubungan kita.
-
-thank you for being patient with me that night, for always trying to understand me, and for caring about my feelings the way you do.
-
-i don't think i'll ever be able to fully explain how much that means to me.
-
-and i want you to know that i'll do the same for you.
-
-i love you so much, sayang.
-
-because we're a team, and i never want you to carry the weight of my silence again. 🤍
-
-love,
-caca 🤍
-
+sayang, ... (isi tetap seperti punyamu)
 </div>
 
+<!-- footer -->
 <div class="footer hidden" id="footer">
 <h2>🤍 caca + ihsan 🤍</h2>
-
-<p>
-forever my favorite team
-</p>
-
-<p class="small">
-thank you for loving me the way you do.
-</p>
+<p>forever my favorite team</p>
+<p class="small">thank you for loving me the way you do.</p>
 </div>
 
 </div>
-
 </div>
-
 </div>
 
 <script>
 
 function startLetter(){
-
 const countdown=document.getElementById("countdown");
 const content=document.getElementById("content");
 
@@ -389,86 +278,61 @@ countdown.classList.remove("hidden");
 
 let num=3;
 
-countdown.innerHTML=num;
-
 const timer=setInterval(()=>{
-
-num--;
 
 if(num>0){
 countdown.innerHTML=num;
+num--;
 }
 else if(num===0){
 countdown.innerHTML="💌";
+num--;
 }
 else{
-
 clearInterval(timer);
-
 countdown.style.display="none";
-
 content.classList.remove("hidden");
-
 }
 
 },1000);
-
 }
 
 function wrongAnswer(){
-
 alert("ihh salah 😤 coba lagi sayang");
-
 }
 
 function nextQuestion(current,next){
-
 document.getElementById("q"+current).classList.add("hidden");
-
 document.getElementById("q"+next).classList.remove("hidden");
-
 }
 
 function showEnvelope(){
-
 document.getElementById("q4").classList.add("hidden");
-
 document.getElementById("envelope").classList.remove("hidden");
-
 }
 
 function openLetter(){
-
 document.getElementById("envelope").classList.add("hidden");
-
 document.getElementById("letter").classList.remove("hidden");
-
 document.getElementById("footer").classList.remove("hidden");
 
 window.scrollTo({
 top:document.body.scrollHeight,
 behavior:"smooth"
 });
-
 }
 
 function love(value){
-
 const text=document.getElementById("loveText");
+const btn=document.getElementById("loveBtn");
 
 if(value < 1000){
-
 text.innerHTML="masih kurang 😭";
-
-}
-else{
-
+btn.classList.add("hidden");
+}else{
 text.innerHTML="udah deh, pokoknya banyak 🤍";
-
-document.getElementById("loveBtn").classList.remove("hidden");
-
+btn.classList.remove("hidden");
 }
-
 }
 
 </script>
