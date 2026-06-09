@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ihsan 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ffd6e7,#fff5fa);
+overflow-x:hidden;
+color:#5b3a47;
+min-height:100vh;
+}
+
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:0;
+overflow:hidden;
+}
+
+.hearts span{
+position:absolute;
+bottom:-50px;
+font-size:24px;
+animation:float 10s linear infinite;
+opacity:.7;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+.container{
+position:relative;
+z-index:1;
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:rgba(255,255,255,.85);
+backdrop-filter:blur(12px);
+border-radius:30px;
+padding:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.photo{
+width:100%;
+max-width:420px;
+border-radius:20px;
+margin:20px auto;
+display:block;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.title{
+font-family:'Dancing Script',cursive;
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.subtitle{
+margin-bottom:20px;
+}
+
+.spotify{
+margin:20px 0;
+}
+
+.open-btn{
+background:#ff8fbc;
+color:white;
+border:none;
+padding:15px 30px;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+.open-btn:hover{
+transform:scale(1.05);
+}
+
+.hidden{
+display:none;
+}
+
+.countdown{
+font-size:4rem;
+margin:30px 0;
+font-weight:bold;
+}
+
+.quiz{
+background:#fff5fa;
+padding:20px;
+border-radius:20px;
+margin:20px 0;
+}
+
+.quiz button{
+background:#ff8fbc;
+border:none;
+color:white;
+padding:10px 18px;
+border-radius:20px;
+margin:5px;
+cursor:pointer;
+}
+
+input[type=range]{
+width:100%;
+}
+
+.letter{
+background:white;
+padding:30px;
+border-radius:25px;
+margin-top:30px;
+text-align:left;
+line-height:2;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+white-space:pre-wrap;
+}
+
+.letter h2{
+text-align:center;
+margin-bottom:20px;
+font-family:'Dancing Script',cursive;
+font-size:2.5rem;
+}
+
+.footer{
+margin-top:40px;
+padding:20px;
+}
+
+.footer h2{
+font-family:'Dancing Script',cursive;
+font-size:2.5rem;
+}
+
+.small{
+opacity:.8;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts">
+<span style="left:10%;animation-delay:0s">💗</span>
+<span style="left:20%;animation-delay:2s">🤍</span>
+<span style="left:35%;animation-delay:4s">💞</span>
+<span style="left:50%;animation-delay:1s">🎀</span>
+<span style="left:65%;animation-delay:3s">💗</span>
+<span style="left:80%;animation-delay:5s">🤍</span>
+<span style="left:95%;animation-delay:2s">💞</span>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h1 class="title">a little something from caca 💌</h1>
+
+<p class="subtitle">
+for ihsan, my favorite person 🤍
+</p>
+
+<!-- GANTI FOTO INI DENGAN FOTO KALIAN -->
+<img class="photo" src="https://via.placeholder.com/420x520.png?text=Caca+%26+Ihsan" alt="photo">
+
+<div class="spotify">
+<p style="margin-bottom:10px;">
+🎵 play this before opening the letter, okay? 🤍
+</p>
+
+<iframe
+style="border-radius:12px"
+src="https://open.spotify.com/embed/track/0yuAWlxq59xT3agQ965OxE?utm_source=generator"
+width="100%"
+height="152"
+frameBorder="0"
+allowfullscreen=""
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+<button class="open-btn" onclick="startLetter()">
+🎀 Open Me
+</button>
+
+<div id="countdown" class="hidden countdown">
+3
+</div>
+
+<div id="content" class="hidden">
+
+<div class="quiz">
+<h3>💞 berapa sayang kamu sama caca?</h3>
+
+<input type="range" min="0" max="1000" value="0" oninput="love(this.value)">
+
+<p id="loveText">
+geser dulu 😚
+</p>
+</div>
+
+<div class="quiz">
+<p>siapa pacar paling cantik?</p>
+
+<button onclick="alert('jawaban benar 😌💗')">caca</button>
+<button onclick="alert('salah 😤')">yang lain</button>
+</div>
+
+<div class="quiz">
+<p>kalau kangen harus?</p>
+
+<button onclick="alert('YESSS 🤍')">chat caca</button>
+<button onclick="alert('ga boleh 😭')">dipendem</button>
+</div>
+
+<div class="quiz">
+<p>ihsan sayang caca?</p>
+
+<button onclick="alert('aku tau jawabannya 🤍')">banget</button>
+<button onclick="alert('aku tau jawabannya juga 🤍')">bangettttt</button>
+</div>
+
+<div class="letter">
+
+<h2>💌 for ihsan</h2>
+
+sayang,
+
+i've been thinking about the other night.
+
+honestly, aku ngerasa bersalah karena udah terlalu larut sama pikiranku sendiri sampai kebawa ke mood pas ketemu kamu. yang baru aku sadari setelahnya, waktu aku memilih buat nyimpen semuanya sendiri, ternyata bukan cuma aku yang nggak nyaman. you felt it too. kamu langsung sadar ada sesuatu yang beda dari aku, dan aku tahu itu bikin kamu ikut nggak tenang.
+
+and i don't want to do that to you again.
+
+aku belajar kalau aku nggak harus figure everything out sendiri dulu sebelum cerita ke kamu. aku nggak harus nunggu sampai semua pikiran di kepala aku beres. i can just talk to you, because every time i do, things somehow feel lighter.
+
+tapi semakin aku pikirin, aku sadar kalau yang paling membekas dari malam itu bukan soal apa yang kita bahas.
+
+it's the way you love me.
+
+aku merasa dicintai bukan cuma dari hal-hal besar, tapi justru dari hal-hal kecil yang kamu lakuin setiap hari dan mungkin bahkan nggak kamu sadari.
+
+dari cara kamu langsung notice kalau ada sesuatu yang beda dari aku.
+
+dari cara kamu selalu berusaha ngerti apa yang sebenarnya aku rasain sebelum ngambil kesimpulan.
+
+dari cara kamu nggak takut negur atau marahin aku kalau memang aku salah, karena aku tahu itu datang dari tempat yang baik.
+
+dari cara kamu selalu mempertimbangkan perasaanku dalam setiap keputusan yang kamu ambil.
+
+aku tahu nggak semua hal harus selalu sesuai sama apa yang aku mau. aku juga nggak pernah berharap kamu selalu setuju sama aku atau selalu ngikutin perasaanku.
+
+but what means the most to me is that you always make me feel like my feelings matter.
+
+malam itu aku sadar, sebenarnya kamu punya banyak alasan buat fokus ke diri kamu sendiri, buat menjelaskan sudut pandang kamu, atau buat bilang kalau semuanya nggak perlu dipikirin sejauh itu.
+
+but instead, you chose to understand me first.
+
+dan entah kenapa, itu yang paling bikin aku tersentuh.
+
+karena aku nggak pernah merasa harus berjuang sendirian dengan apa yang aku rasain.
+
+you always make me feel considered, safe, and loved.
+
+and i think that's why, even in moments when i'm overwhelmed by my own thoughts, i never truly feel alone—because somehow, you always make me feel like we're facing things together.
+
+dan jujur, itu adalah salah satu hal yang paling aku syukuri dari hubungan kita.
+
+thank you for being patient with me that night, for always trying to understand me, and for caring about my feelings the way you do.
+
+i don't think i'll ever be able to fully explain how much that means to me.
+
+and i want you to know that i'll do the same for you.
+
+i love you so much, sayang.
+
+because we're a team, and i never want you to carry the weight of my silence again. 🤍
+
+love,
+caca 🤍
+
+</div>
+
+<div class="footer">
+<h2>🤍 caca + ihsan 🤍</h2>
+
+<p>
+forever my favorite team
+</p>
+
+<p class="small">
+thank you for loving me the way you do.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function startLetter(){
+
+const countdown=document.getElementById("countdown");
+const content=document.getElementById("content");
+
+countdown.classList.remove("hidden");
+
+let num=3;
+
+countdown.innerHTML=num;
+
+const timer=setInterval(()=>{
+
+num--;
+
+if(num>0){
+countdown.innerHTML=num;
+}
+else if(num===0){
+countdown.innerHTML="💌";
+}
+else{
+clearInterval(timer);
+countdown.style.display="none";
+content.classList.remove("hidden");
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+}
+
+},1000);
+
+}
+
+function love(value){
+
+const text=document.getElementById("loveText");
+
+if(value<300){
+text.innerHTML="hmm masih kurang 😭";
+}
+else if(value<700){
+text.innerHTML="lumayan 🤍";
+}
+else if(value<1000){
+text.innerHTML="udah banyak 😚";
+}
+else{
+text.innerHTML="udah deh, pokoknya banyak 🤍";
+}
+
+}
+
+</script>
+
+</body>
+</html>
