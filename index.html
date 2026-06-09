@@ -228,38 +228,78 @@ loading="lazy">
 
 <div id="content" class="hidden">
 
-<div class="quiz">
+<div id="q1" class="quiz">
+
 <h3>💞 berapa sayang kamu sama caca?</h3>
 
 <input type="range" min="0" max="1000" value="0" oninput="love(this.value)">
 
 <p id="loveText">
-geser dulu 😚
+geser sampai maksimal 😚
 </p>
+
+<button id="loveBtn" class="open-btn hidden" onclick="nextQuestion(1,2)">
+next 🤍
+</button>
+
 </div>
 
-<div class="quiz">
+<div id="q2" class="quiz hidden">
+
 <p>siapa pacar paling cantik?</p>
 
-<button onclick="alert('jawaban benar 😌💗')">caca</button>
-<button onclick="alert('salah 😤')">yang lain</button>
+<button onclick="nextQuestion(2,3)">
+caca 💗
+</button>
+
+<button onclick="wrongAnswer()">
+yang lain 😤
+</button>
+
 </div>
 
-<div class="quiz">
+<div id="q3" class="quiz hidden">
+
 <p>kalau kangen harus?</p>
 
-<button onclick="alert('YESSS 🤍')">chat caca</button>
-<button onclick="alert('ga boleh 😭')">dipendem</button>
+<button onclick="nextQuestion(3,4)">
+chat caca 🤍
+</button>
+
+<button onclick="wrongAnswer()">
+dipendem 😭
+</button>
+
 </div>
 
-<div class="quiz">
-<p>ihsan sayang caca?</p>
+<div id="q4" class="quiz hidden">
 
-<button onclick="alert('aku tau jawabannya 🤍')">banget</button>
-<button onclick="alert('aku tau jawabannya juga 🤍')">bangettttt</button>
+<p>siapa orang yang paling sayang ihsan?</p>
+
+<button onclick="showEnvelope()">
+caca 💌
+</button>
+
+<button onclick="wrongAnswer()">
+tetangga 😤
+</button>
+
 </div>
 
-<div class="letter">
+<div id="envelope" class="quiz hidden">
+
+<h1>💌</h1>
+
+<p>
+you unlocked your letter 🤍
+</p>
+
+<button class="open-btn" onclick="openLetter()">
+open letter
+</button>
+
+</div>
+<div class="letter hidden" id="letter">
 
 <h2>💌 for ihsan</h2>
 
@@ -320,7 +360,7 @@ caca 🤍
 
 </div>
 
-<div class="footer">
+<div class="footer hidden" id="footer">
 <h2>🤍 caca + ihsan 🤍</h2>
 
 <p>
@@ -338,6 +378,7 @@ thank you for loving me the way you do.
 
 </div>
 
+Terakhir, ganti seluruh bagian script dengan ini:
 <script>
 
 function startLetter(){
@@ -362,16 +403,53 @@ else if(num===0){
 countdown.innerHTML="💌";
 }
 else{
+
 clearInterval(timer);
+
 countdown.style.display="none";
+
 content.classList.remove("hidden");
+
+}
+
+},1000);
+
+}
+
+function wrongAnswer(){
+
+alert("ihh salah 😤 coba lagi sayang");
+
+}
+
+function nextQuestion(current,next){
+
+document.getElementById("q"+current).classList.add("hidden");
+
+document.getElementById("q"+next).classList.remove("hidden");
+
+}
+
+function showEnvelope(){
+
+document.getElementById("q4").classList.add("hidden");
+
+document.getElementById("envelope").classList.remove("hidden");
+
+}
+
+function openLetter(){
+
+document.getElementById("envelope").classList.add("hidden");
+
+document.getElementById("letter").classList.remove("hidden");
+
+document.getElementById("footer").classList.remove("hidden");
+
 window.scrollTo({
 top:document.body.scrollHeight,
 behavior:"smooth"
 });
-}
-
-},1000);
 
 }
 
@@ -379,17 +457,17 @@ function love(value){
 
 const text=document.getElementById("loveText");
 
-if(value<300){
-text.innerHTML="hmm masih kurang 😭";
-}
-else if(value<700){
-text.innerHTML="lumayan 🤍";
-}
-else if(value<1000){
-text.innerHTML="udah banyak 😚";
+if(value < 1000){
+
+text.innerHTML="masih kurang 😭";
+
 }
 else{
+
 text.innerHTML="udah deh, pokoknya banyak 🤍";
+
+document.getElementById("loveBtn").classList.remove("hidden");
+
 }
 
 }
