@@ -418,8 +418,19 @@ behavior:"smooth"
 }
 
 function love(value){
+
 const text=document.getElementById("loveText");
 const btn=document.getElementById("loveBtn");
+const slider=document.querySelector('input[type="range"]');
+
+let percent=(value/1000)*100;
+
+slider.style.background=
+`linear-gradient(to right,
+#ff8fbc 0%,
+#ff8fbc ${percent}%,
+#ffd6e7 ${percent}%,
+#ffd6e7 100%)`;
 
 if(value < 1000){
 text.innerHTML="masih kurang 😭";
@@ -428,6 +439,7 @@ btn.classList.add("hidden");
 text.innerHTML="udah deh, pokoknya banyak 🤍";
 btn.classList.remove("hidden");
 }
+
 }
 
 </script>
