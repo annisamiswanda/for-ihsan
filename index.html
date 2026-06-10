@@ -147,6 +147,34 @@ cursor:pointer;
 /* range */
 input[type=range]{
 width:100%;
+-webkit-appearance:none;
+appearance:none;
+height:10px;
+border-radius:20px;
+background:#ffd6e7;
+outline:none;
+}
+
+/* bulatan slider */
+input[type=range]::-webkit-slider-thumb{
+-webkit-appearance:none;
+appearance:none;
+width:24px;
+height:24px;
+border-radius:50%;
+background:#ff8fbc;
+cursor:pointer;
+border:none;
+box-shadow:0 2px 8px rgba(255,143,188,.4);
+}
+
+input[type=range]::-moz-range-thumb{
+width:24px;
+height:24px;
+border-radius:50%;
+background:#ff8fbc;
+border:none;
+cursor:pointer;
 }
 
 /* letter */
